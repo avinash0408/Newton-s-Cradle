@@ -11,16 +11,14 @@ var Engine = Matter.Engine,
     Constraint=Matter.Constraint,
     MouseConstraint = Matter.MouseConstraint,
     Bodies = Matter.Bodies;
+   
 
 // create an engine
 var engine = Engine.create();
-var body=document.querySelector('body');
-console.log(body);
-var width;
-var height;
 // create a renderer
 var render = Render.create({
-    element: document.body,
+   // element: document.body,
+   canvas: document.getElementById('canv'),
     engine: engine,
    // canvas:document.getElementById('mycanvas'),
     options:{
@@ -39,7 +37,7 @@ var my_style={
     var wu=Bodies.rectangle(750,1,1580,1,{isStatic:true,render:my_style});
 var wl=Bodies.rectangle(0,300,1,1000,{isStatic:true,render:my_style});
 var wr=Bodies.rectangle(1536,300,1,1000,{isStatic:true,render:my_style});
-console.log(window.innerHeight);
+//console.log(window.innerHeight);
 var cradle=newCradle(350,0,7,20,250);
 Body.translate(cradle.bodies[0], { x: -100, y: -100 });
 var ground=Bodies.rectangle(750,745,1580,1,{isStatic:true,render:my_style});
@@ -58,7 +56,22 @@ for(var i=0;i<circle_arr.length;i++){
     var circle=Bodies.circle(1200+10*i,200,circle_arr[i],
         { inertia: Infinity, restitution: 0.6, friction: 0, frictionAir: 0.0001, slop: 1 });
     World.add(engine.world,[circle]);
+    //console.log(circle);
 }
+// Matter.Events.on(engine, 'collisionStart', function(event) {
+//     let a = event.pairs.bodyA;
+//     let b = event.pairs.bodyB;
+//     console.log(a);
+//     console.log(b);
+
+//     // check bodies, do whatever...
+// });
+document.addEventListener("dragover", function(e){
+    e = e || window.event;
+    var dragX = e.pageX, dragY = e.pageY;
+
+    console.log("X: "+dragX+" Y: "+dragY);
+}, false);
 //mouse constraints
 var mouse = Mouse.create(render.canvas),
         mouseConstraint = MouseConstraint.create(engine, {
@@ -93,6 +106,8 @@ x.style.display="none";
       Composite.addConstraint(newtonsCradle, constraint);
       size=size;
   }
+//   var final_thread= Constraint.create({ pointA: { x: xx + i * (size * separation), y: yy },bodyB:circle});
+//   Composite.addConstraint(newtonsCradle, final_thread);
 
   return newtonsCradle;
 };

@@ -1,0 +1,20 @@
+{
+  "name": "newtons-cradle",
+  "version": "1.0.0",
+  "description": "This is a simple Newtons-Cradle game where you can get acknowledged with the transfer of momentum.",
+  "main": "main.js",
+  "dependencies": {
+    "matter-js": "^0.14.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Avinash0408@bitbucket.org/thinktac-games/newtons-cradle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/thinktac-games/newtons-cradle#readme"
+}

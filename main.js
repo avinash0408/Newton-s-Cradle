@@ -39,7 +39,7 @@ var wl=Bodies.rectangle(0,300,1,1000,{isStatic:true,render:my_style});
 var wr=Bodies.rectangle(1536,300,1,1000,{isStatic:true,render:my_style});
 //console.log(window.innerHeight);
 var cradle=newCradle(350,0,7,20,250);
-Body.translate(cradle.bodies[0], { x: -100, y: -100 });
+//Body.translate(cradle.bodies[0], { x: -100, y: -100 });
 var ground=Bodies.rectangle(750,745,1580,1,{isStatic:true,render:my_style});
 var dock_left=Bodies.rectangle(950,300,2,200,{isStatic:true,render:my_style});
 //var dock_right=Bodies.rectangle(1300,340,2,200,{isStatic:true,render:my_style});
